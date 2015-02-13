@@ -682,6 +682,16 @@
             $("a[href='#"+tab+"']").parent().addClass("active");
                 $("#"+tab).addClass("active");
             }
+            $('a[data-toggle="tab"]').click(function(){
+                var tabNumber = $(this).attr('href').slice(5,6),
+                    base,
+                    newurl;
+                if (tabNumber) {
+                    base = location.href.split('#');
+                    newurl = base[0] + '#tab_' + tabNumber;
+                    window.location.assign(newurl);
+                }
+            });
 
         });
     </script>
